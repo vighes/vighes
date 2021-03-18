@@ -6,7 +6,8 @@ phases:
     commands:
       - git remote set-url origin https://github.com/vighes/vighes.git
       - printenv
-      - echo $(git describe --abbrev=0 --tags)
+      - currenttag=$(git describe --abbrev=0 --tags)
+      - echo "$currenttag"
       - scripts/codebuild-git-wrapper.sh "https://github.com/vighes/vighes.git" "main"
       - git log | head -100
             
