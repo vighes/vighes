@@ -1,6 +1,6 @@
 version: 0.2
 env:
-              git-credential-helper: yes
+    git-credential-helper: yes
 phases: 
     install:
         runtime-versions:
@@ -9,6 +9,8 @@ phases:
             - echo "installing something"
     pre_build:
         commands: 
+	        - scripts/codebuild-git-wrapper.sh "$REPO_URL" "$REPO_BRANCH" # These environment variables come from the CFN stack
+            - git log | head -100
             - echo "we are in the pre build phase"
     build:
         commands:
