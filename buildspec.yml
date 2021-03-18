@@ -4,6 +4,7 @@ env:
 phases:
   build:
     commands:
-      - scripts/codebuild-git-wrapper.sh "git@github.com:vighes/vighes.git" "main"
+      - git remote set-url origin https://github.com/vighes/vighes.git
+      - scripts/codebuild-git-wrapper.sh "https://github.com/vighes/vighes.git" "main"
       - git log | head -100
             
