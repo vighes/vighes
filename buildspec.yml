@@ -1,6 +1,5 @@
 version: 0.2
 env:
-    eiifccuhcgtdhbeifjculhdhghfddevntbbngtgurdht
     git-credential-helper: yes
 phases: 
     install:
@@ -10,7 +9,7 @@ phases:
             - echo "installing something"
     pre_build:
         commands: 
-	        - scodebuild-git-wrapper.sh "git@github.com:vighes/vighes.git" "main" # These environment variables come from the CFN stack
+	        - codebuild-git-wrapper.sh "git@github.com:vighes/vighes.git" "main" # These environment variables come from the CFN stack
             - git log | head -100
             - echo "we are in the pre build phase"
     build:
