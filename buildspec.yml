@@ -7,7 +7,7 @@ phases:
       - git remote set-url origin https://github.com/vighes/vighes.git
       - printenv
       - currenttag=$(git describe --abbrev=0 --tags)
-      - echo "$currenttag"
+      - echo "$currenttag is"
       - scripts/codebuild-git-wrapper.sh "https://github.com/vighes/vighes.git" "main"
       - git log | head -100
-      - aws servicecatalog create-provisioning-artifact --product-id "prod-oqg47n6u2wusa" --parameters Name=$(git describe --abbrev=0 --tags),Description="First tag",Info={LoadTemplateFromURL=https://cicd-sachin-devops.s3.amazonaws.com/template.yml},Type="CLOUD_FORMATION_TEMPLATE" --region us-west-2
+      - aws servicecatalog create-provisioning-artifact --product-id "prod-oqg47n6u2wusa" --parameters Name=$(git describe --abbrev=0 --tags),Description="Third tag",Info={LoadTemplateFromURL=https://cicd-sachin-devops.s3.amazonaws.com/template.yml},Type="CLOUD_FORMATION_TEMPLATE" --region us-west-2
