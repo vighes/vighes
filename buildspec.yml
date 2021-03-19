@@ -10,4 +10,4 @@ phases:
       - echo "$currenttag"
       - scripts/codebuild-git-wrapper.sh "https://github.com/vighes/vighes.git" "main"
       - git log | head -100
-            
+      - aws servicecatalog create-provisioning-artifact --product-id "prod-oqg47n6u2wusa" --parameters Name=$$(git describe --abbrev=0 --tags),Description="First tag",Info={LoadTemplateFromURL=https://cicd-sachin-devops.s3.amazonaws.com/template.yml,Type="Cloud formation template" --region us-west-2
